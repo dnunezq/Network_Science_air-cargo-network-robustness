@@ -1,0 +1,176 @@
+[
+  {
+    "period": "annual",
+    "pairs_top20_all_rules": 2,
+    "pairs": [
+      {
+        "a": "SDF",
+        "b": "SEA",
+        "rank_min": 1.0,
+        "rank_max": 3.0
+      },
+      {
+        "a": "SDF",
+        "b": "SFO",
+        "rank_min": 2.0,
+        "rank_max": 5.0
+      }
+    ]
+  },
+  {
+    "period": "T1",
+    "pairs_top20_all_rules": 5,
+    "pairs": [
+      {
+        "a": "SDF",
+        "b": "SEA",
+        "rank_min": 1.0,
+        "rank_max": 2.0
+      },
+      {
+        "a": "SDF",
+        "b": "SFO",
+        "rank_min": 2.0,
+        "rank_max": 5.0
+      },
+      {
+        "a": "ONT",
+        "b": "BWI",
+        "rank_min": 3.0,
+        "rank_max": 13.0
+      },
+      {
+        "a": "EWR",
+        "b": "STL",
+        "rank_min": 5.0,
+        "rank_max": 15.0
+      },
+      {
+        "a": "PDX",
+        "b": "BWI",
+        "rank_min": 6.0,
+        "rank_max": 16.0
+      }
+    ]
+  },
+  {
+    "period": "T2",
+    "pairs_top20_all_rules": 5,
+    "pairs": [
+      {
+        "a": "SDF",
+        "b": "SEA",
+        "rank_min": 1.0,
+        "rank_max": 2.0
+      },
+      {
+        "a": "SDF",
+        "b": "SFO",
+        "rank_min": 3.0,
+        "rank_max": 4.0
+      },
+      {
+        "a": "CVG",
+        "b": "RFD",
+        "rank_min": 1.0,
+        "rank_max": 7.0
+      },
+      {
+        "a": "PHX",
+        "b": "FLL",
+        "rank_min": 4.0,
+        "rank_max": 11.0
+      },
+      {
+        "a": "ONT",
+        "b": "MSP",
+        "rank_min": 6.0,
+        "rank_max": 19.0
+      }
+    ]
+  },
+  {
+    "period": "T3",
+    "pairs_top20_all_rules": 7,
+    "pairs": [
+      {
+        "a": "SDF",
+        "b": "SEA",
+        "rank_min": 1.0,
+        "rank_max": 2.0
+      },
+      {
+        "a": "SDF",
+        "b": "SFO",
+        "rank_min": 2.0,
+        "rank_max": 3.0
+      },
+      {
+        "a": "PHX",
+        "b": "FLL",
+        "rank_min": 5.0,
+        "rank_max": 10.0
+      },
+      {
+        "a": "MIA",
+        "b": "PDX",
+        "rank_min": 3.0,
+        "rank_max": 17.0
+      },
+      {
+        "a": "JFK",
+        "b": "BNA",
+        "rank_min": 4.0,
+        "rank_max": 18.0
+      },
+      {
+        "a": "RFD",
+        "b": "LAS",
+        "rank_min": 7.0,
+        "rank_max": 20.0
+      },
+      {
+        "a": "ONT",
+        "b": "TPA",
+        "rank_min": 12.0,
+        "rank_max": 19.0
+      }
+    ]
+  },
+  {
+    "period": "T4",
+    "pairs_top20_all_rules": 5,
+    "pairs": [
+      {
+        "a": "SDF",
+        "b": "SEA",
+        "rank_min": 1.0,
+        "rank_max": 2.0
+      },
+      {
+        "a": "SDF",
+        "b": "SFO",
+        "rank_min": 2.0,
+        "rank_max": 3.0
+      },
+      {
+        "a": "JFK",
+        "b": "BNA",
+        "rank_min": 3.0,
+        "rank_max": 9.0
+      },
+      {
+        "a": "ONT",
+        "b": "STL",
+        "rank_min": 8.0,
+        "rank_max": 17.0
+      },
+      {
+        "a": "ONT",
+        "b": "DTW",
+        "rank_min": 8.0,
+        "rank_max": 16.0
+      }
+    ]
+  }
+]
