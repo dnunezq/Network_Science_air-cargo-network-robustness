@@ -1,0 +1,13 @@
+# Entornos y archivos técnicos de Jupyter / Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.ipython/
+.jupyter/
+.matplotlib/
+.DS_Store
+
+# Intermedio de 34 MB que el notebook reescribe en cada ejecución; la app usa app/dist/data/interactive.json
+resultados/ampliaciones/explorador.json
