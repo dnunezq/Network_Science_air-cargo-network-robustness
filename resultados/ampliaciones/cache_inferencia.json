@@ -1,0 +1,9 @@
+{
+  "fingerprint": "babfe14b3bb81393f6a33929b093c08e6007cd7e522b75db3d6d88ed87bc3985",
+  "files": {
+    "inferencia_ampliada_resumen.json": "aca415bd6e5c221fbb4e2d504ffa218d31a045322aa5f7ac02cac668f91e7360",
+    "inferencia_ampliada_residuos.csv": "02cee5cd680c71b595e320927aa7b969880801a16b52a3929dfc580a4554306d",
+    "inferencia_ampliada_coeficientes.csv": "49e084f0aa2c48b9c499495ad71ba3f2dfa497a0c3383c295d9490ee64fa9eed",
+    "inferencia_ampliada_vif.csv": "975f67e0f635cb964c351e3c6da652d0d636a2d754e1a04c12466c6668540c70"
+  }
+}

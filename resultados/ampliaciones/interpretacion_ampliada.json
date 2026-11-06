@@ -1,0 +1,370 @@
+{
+  "cases": [
+    {
+      "a": "SDF",
+      "b": "SEA",
+      "score": 0.6835165762104778,
+      "rank": 1.0,
+      "direct": false,
+      "metrics": [
+        {
+          "name": "global_efficiency",
+          "baseline": 0.7463299663299665,
+          "single_a_impact": 0.003940081082938196,
+          "single_b_impact": 0.0026001511715797454,
+          "joint_impact": 0.006726908612033733,
+          "synergy": 0.00018667635751579148,
+          "normalized_synergy": 0.5606569933197154,
+          "weight": 0.27143782728264254,
+          "contribution": 0.1521835161175226
+        },
+        {
+          "name": "local_efficiency",
+          "baseline": 0.8727958682698648,
+          "single_a_impact": 0.0027613258799307205,
+          "single_b_impact": 0.0012115861630727087,
+          "joint_impact": 0.004482968449033398,
+          "synergy": 0.0005100564060299684,
+          "normalized_synergy": 0.5390273494270124,
+          "weight": 0.42785426072294547,
+          "contribution": 0.23062514809854318
+        },
+        {
+          "name": "natural_connectivity",
+          "baseline": 52.72956320411284,
+          "single_a_impact": 1.2561251018733515,
+          "single_b_impact": 1.045242984401817,
+          "joint_impact": 2.350147647552106,
+          "synergy": 0.0487795612769375,
+          "normalized_synergy": 1.0,
+          "weight": 0.300707911994412,
+          "contribution": 0.300707911994412
+        }
+      ],
+      "paths": {
+        "n_surviving_pairs": 4753,
+        "worsened_pairs": 0,
+        "disconnected_pairs": 0,
+        "global_before_survivors": 0.7396030577179328,
+        "global_after_survivors": 0.7396030577179328,
+        "composition_component": 0.006726908612033733,
+        "path_component": 0.0
+      },
+      "joint_global_rank": 56.5,
+      "shared_neighbors": 68
+    },
+    {
+      "a": "MEM",
+      "b": "ORD",
+      "score": 0.4718966200084829,
+      "rank": 3.0,
+      "direct": true,
+      "metrics": [
+        {
+          "name": "global_efficiency",
+          "baseline": 0.7463299663299665,
+          "single_a_impact": 0.0042492956778670266,
+          "single_b_impact": 0.004283652855081255,
+          "joint_impact": 0.008865908541902168,
+          "synergy": 0.00033296000895388644,
+          "normalized_synergy": 1.0,
+          "weight": 0.27143782728264254,
+          "contribution": 0.27143782728264254
+        },
+        {
+          "name": "local_efficiency",
+          "baseline": 0.8727958682698648,
+          "single_a_impact": 0.0034028123137699318,
+          "single_b_impact": 0.003061002525650225,
+          "joint_impact": 0.006745909740189626,
+          "synergy": 0.0002820949007694695,
+          "normalized_synergy": 0.29811774707856353,
+          "weight": 0.42785426072294547,
+          "contribution": 0.12755094828468883
+        },
+        {
+          "name": "natural_connectivity",
+          "baseline": 52.72956320411284,
+          "single_a_impact": 1.348422102436487,
+          "single_b_impact": 1.336661792584323,
+          "joint_impact": 2.6969106961245757,
+          "synergy": 0.01182680110376566,
+          "normalized_synergy": 0.24245402775603184,
+          "weight": 0.300707911994412,
+          "contribution": 0.07290784444115155
+        }
+      ],
+      "paths": {
+        "n_surviving_pairs": 4753,
+        "worsened_pairs": 13,
+        "disconnected_pairs": 0,
+        "global_before_survivors": 0.7379199102321343,
+        "global_after_survivors": 0.7374640577880643,
+        "composition_component": 0.008410056097832186,
+        "path_component": 0.0004558524440699818
+      },
+      "joint_global_rank": 1.0,
+      "shared_neighbors": 83
+    },
+    {
+      "a": "ONT",
+      "b": "STL",
+      "score": 0.0364614144746206,
+      "rank": 1592.0,
+      "direct": true,
+      "metrics": [
+        {
+          "name": "global_efficiency",
+          "baseline": 0.7463299663299665,
+          "single_a_impact": 0.0023940081082937104,
+          "single_b_impact": 0.002290936576650804,
+          "joint_impact": 0.004728170972647994,
+          "synergy": 4.322628770347947e-05,
+          "normalized_synergy": 0.12982426279747647,
+          "weight": 0.27143782728264254,
+          "contribution": 0.035239215822317815
+        },
+        {
+          "name": "local_efficiency",
+          "baseline": 0.8727958682698648,
+          "single_a_impact": 0.0007798096636687513,
+          "single_b_impact": 0.0011328092716530458,
+          "joint_impact": 0.001938384707685481,
+          "synergy": 2.5765772363683936e-05,
+          "normalized_synergy": 0.027229255076389146,
+          "weight": 0.42785426072294547,
+          "contribution": 0.011650152800744988
+        },
+        {
+          "name": "natural_connectivity",
+          "baseline": 52.72956320411284,
+          "single_a_impact": 0.8953072717117152,
+          "single_b_impact": 1.00879133386222,
+          "joint_impact": 1.9024070271082962,
+          "synergy": -0.0016915784656390542,
+          "normalized_synergy": -0.034678017213713976,
+          "weight": 0.300707911994412,
+          "contribution": -0.010427954148442206
+        }
+      ],
+      "paths": {
+        "n_surviving_pairs": 4753,
+        "worsened_pairs": 3,
+        "disconnected_pairs": 0,
+        "global_before_survivors": 0.7417069920751808,
+        "global_after_survivors": 0.7416017953573185,
+        "composition_component": 0.00462297425478575,
+        "path_component": 0.00010519671786224372
+      },
+      "joint_global_rank": 388.0,
+      "shared_neighbors": 54
+    },
+    {
+      "a": "CVG",
+      "b": "IAD",
+      "score": 0.026514313093086297,
+      "rank": 1770.0,
+      "direct": true,
+      "metrics": [
+        {
+          "name": "global_efficiency",
+          "baseline": 0.7463299663299665,
+          "single_a_impact": 0.002325293753865143,
+          "single_b_impact": 0.0017755789184360493,
+          "joint_impact": 0.004132056238094428,
+          "synergy": 3.118356579323578e-05,
+          "normalized_synergy": 0.09365558912378144,
+          "weight": 0.27143782728264254,
+          "contribution": 0.025421669624635122
+        },
+        {
+          "name": "local_efficiency",
+          "baseline": 0.8727958682698648,
+          "single_a_impact": 0.0014617658157550784,
+          "single_b_impact": 0.0009752395214741583,
+          "joint_impact": 0.002453789739877421,
+          "synergy": 1.6784402648184482e-05,
+          "normalized_synergy": 0.01773774814747653,
+          "weight": 0.42785426072294547,
+          "contribution": 0.0075891711205283655
+        },
+        {
+          "name": "natural_connectivity",
+          "baseline": 52.72956320411284,
+          "single_a_impact": 0.965581999477493,
+          "single_b_impact": 0.9256601697256173,
+          "joint_impact": 1.890188330058706,
+          "synergy": -0.0010538391444043782,
+          "normalized_synergy": -0.021604112804979717,
+          "weight": 0.300707911994412,
+          "contribution": -0.00649652765207719
+        }
+      ],
+      "paths": {
+        "n_surviving_pairs": 4753,
+        "worsened_pairs": 4,
+        "disconnected_pairs": 0,
+        "global_before_survivors": 0.7423381723823552,
+        "global_after_survivors": 0.7421979100918721,
+        "composition_component": 0.0039917939476112885,
+        "path_component": 0.00014026229048313965
+      },
+      "joint_global_rank": 561.0,
+      "shared_neighbors": 53
+    }
+  ],
+  "fixed_universe": {
+    "method": "Se conservan 100 nodos y se aíslan los fallidos; se recalculan las tres métricas, sinergias, normalización y pesos.",
+    "spearman": 0.8547759664939654,
+    "shared_top": 17,
+    "overlap": 0.85,
+    "weights_base": [
+      0.27143782728264254,
+      0.42785426072294547,
+      0.300707911994412
+    ],
+    "weights_fixed": [
+      0.06541916340798339,
+      0.610974920468685,
+      0.32360591612333167
+    ],
+    "negative_global_impacts_base": 2473,
+    "negative_global_impacts_fixed": 0,
+    "top20": [
+      {
+        "a": "SDF",
+        "b": "SEA",
+        "score_fixed_universe": 0.6014903527652885,
+        "rank_fixed_universe": 1.0
+      },
+      {
+        "a": "MHT",
+        "b": "SCK",
+        "score_fixed_universe": 0.5576557847034326,
+        "rank_fixed_universe": 2.0
+      },
+      {
+        "a": "SDF",
+        "b": "SFO",
+        "score_fixed_universe": 0.498835021494122,
+        "rank_fixed_universe": 3.0
+      },
+      {
+        "a": "IND",
+        "b": "RFD",
+        "score_fixed_universe": 0.3339109499612995,
+        "rank_fixed_universe": 4.0
+      },
+      {
+        "a": "ONT",
+        "b": "IAD",
+        "score_fixed_universe": 0.32789030227749283,
+        "rank_fixed_universe": 5.0
+      },
+      {
+        "a": "RFD",
+        "b": "BNA",
+        "score_fixed_universe": 0.31449575589629397,
+        "rank_fixed_universe": 6.0
+      },
+      {
+        "a": "ONT",
+        "b": "FLL",
+        "score_fixed_universe": 0.30038006086363306,
+        "rank_fixed_universe": 7.0
+      },
+      {
+        "a": "RFD",
+        "b": "AUS",
+        "score_fixed_universe": 0.28809735061726405,
+        "rank_fixed_universe": 8.0
+      },
+      {
+        "a": "SDF",
+        "b": "SMF",
+        "score_fixed_universe": 0.266853642024063,
+        "rank_fixed_universe": 9.0
+      },
+      {
+        "a": "AFW",
+        "b": "PHL",
+        "score_fixed_universe": 0.2625661473094464,
+        "rank_fixed_universe": 10.0
+      },
+      {
+        "a": "PHX",
+        "b": "RIC",
+        "score_fixed_universe": 0.2622006770451489,
+        "rank_fixed_universe": 11.0
+      },
+      {
+        "a": "RFD",
+        "b": "TPA",
+        "score_fixed_universe": 0.26138178418355396,
+        "rank_fixed_universe": 12.0
+      },
+      {
+        "a": "RFD",
+        "b": "SAN",
+        "score_fixed_universe": 0.25984112590385733,
+        "rank_fixed_universe": 13.0
+      },
+      {
+        "a": "IND",
+        "b": "SAT",
+        "score_fixed_universe": 0.2519701938659735,
+        "rank_fixed_universe": 14.0
+      },
+      {
+        "a": "JFK",
+        "b": "OAK",
+        "score_fixed_universe": 0.2431637807466708,
+        "rank_fixed_universe": 15.0
+      },
+      {
+        "a": "OAK",
+        "b": "IAH",
+        "score_fixed_universe": 0.24040245729321702,
+        "rank_fixed_universe": 16.0
+      },
+      {
+        "a": "AFW",
+        "b": "MCO",
+        "score_fixed_universe": 0.22634219092680694,
+        "rank_fixed_universe": 17.0
+      },
+      {
+        "a": "MSP",
+        "b": "ELP",
+        "score_fixed_universe": 0.22591129808423954,
+        "rank_fixed_universe": 18.0
+      },
+      {
+        "a": "JFK",
+        "b": "SMF",
+        "score_fixed_universe": 0.22248213658265603,
+        "rank_fixed_universe": 19.0
+      },
+      {
+        "a": "CVG",
+        "b": "RDU",
+        "score_fixed_universe": 0.2194452430683868,
+        "rank_fixed_universe": 20.0
+      }
+    ]
+  },
+  "graph_properties": {
+    "n_nodes": 100,
+    "n_edges": 2441,
+    "diameter": 3,
+    "vertex_connectivity": 6
+  },
+  "score_damage_spearman": 0.2910609367442475,
+  "notes": [
+    "Sinergia es exceso de impacto frente a fallos individuales; no equivale al daño total.",
+    "Las eficiencias base promedian los nodos supervivientes; retirar nodos cambia el conjunto promediado.",
+    "La descomposición global compara los mismos extremos antes y después y separa composición de aumento de distancias.",
+    "La conectividad natural describe estructura espectral; no son toneladas perdidas ni capacidad de desvío.",
+    "Conectividad de vértices en la red binaria no garantiza continuidad operativa ni transferencia entre operadores."
+  ]
+}
