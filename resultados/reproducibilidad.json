@@ -1,0 +1,19 @@
+{
+  "python": "3.14.0",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scipy": "1.18.1",
+    "networkx": "3.7",
+    "numba": "0.68.1",
+    "matplotlib": "3.11.2",
+    "threadpoolctl": "3.7.0"
+  },
+  "algorithm_version": "2025-v1.0-exact-binary",
+  "raw_zip_sha256": "f2e386f1aa92636fa43bc7d9c8f0904077aeb162503d30f45b696d63afb26fac",
+  "coordinates_sha256": "84c4e9269567665823954737d4925663af57fd6249f47f456bff3d28ed0aec8b",
+  "year": 2025,
+  "top_n": 100,
+  "seed": 2025,
+  "permutations": 9999
+}

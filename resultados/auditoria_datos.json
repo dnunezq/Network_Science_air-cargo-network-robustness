@@ -1,0 +1,70 @@
+{
+  "raw_rows": 458793,
+  "columns": 45,
+  "source_years": [
+    2025
+  ],
+  "rows_by_month": {
+    "1": 36123,
+    "2": 35058,
+    "3": 38155,
+    "4": 36343,
+    "5": 38260,
+    "6": 40359,
+    "7": 39976,
+    "8": 40137,
+    "9": 36723,
+    "10": 38804,
+    "11": 39240,
+    "12": 39615
+  },
+  "missing_required": {
+    "YEAR": 0,
+    "MONTH": 0,
+    "QUARTER": 0,
+    "ORIGIN_AIRPORT_ID": 0,
+    "DEST_AIRPORT_ID": 0,
+    "ORIGIN": 0,
+    "DEST": 0,
+    "FREIGHT": 0,
+    "MAIL": 0,
+    "DISTANCE": 0,
+    "DEPARTURES_PERFORMED": 0
+  },
+  "exact_duplicates": 0,
+  "clean_rows": 191845,
+  "cleaning_steps": [
+    {
+      "stage": "Registros originales",
+      "remaining": 458793,
+      "removed": 0
+    },
+    {
+      "stage": "Eliminar duplicados exactos",
+      "remaining": 458793,
+      "removed": 0
+    },
+    {
+      "stage": "Identificadores, códigos y calendario válidos",
+      "remaining": 458793,
+      "removed": 0
+    },
+    {
+      "stage": "Carga finita y estrictamente positiva",
+      "remaining": 192290,
+      "removed": 266503
+    },
+    {
+      "stage": "Origen diferente del destino",
+      "remaining": 191845,
+      "removed": 445
+    }
+  ],
+  "invalid_distance_rows": 0,
+  "clean_segment_freight_lb": 25913325322.0,
+  "nonnegative_mail": true,
+  "raw_zip_sha256": "f2e386f1aa92636fa43bc7d9c8f0904077aeb162503d30f45b696d63afb26fac",
+  "original_download_date": "2026-10-04",
+  "analysis_timestamp_utc": "2026-11-06T02:25:58.053029+00:00",
+  "selected_endpoint_freight_share": 0.9700387363893875
+}

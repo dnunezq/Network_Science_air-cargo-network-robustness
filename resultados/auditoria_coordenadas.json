@@ -1,0 +1,12 @@
+{
+  "selected_airports": 100,
+  "matched_airports": 100,
+  "observed_airport_seq_ids": 144,
+  "matched_airport_seq_ids": 144,
+  "airports_with_multiple_versions": 44,
+  "airports_with_coordinate_changes": 43,
+  "unmatched_sequences": [],
+  "selection_rule": "AirportSeqID observado en el último mes de T-100 2025; empates por AirportStartDate y AirportSeqID crecientes.",
+  "temporal_scope": "Catálogo histórico BTS descargado actualmente; coordenadas enlazadas a versiones usadas en los registros de 2025, no a la versión vigente actual.",
+  "dictionary_url": "https://transtats.bts.gov/Fields.asp?gnoyr_VQ=FLL"
+}

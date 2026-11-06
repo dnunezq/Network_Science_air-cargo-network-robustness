@@ -1,0 +1,331 @@
+DATASET BASE: CARGA AÉREA DOMÉSTICA DE ESTADOS UNIDOS, 2025
+Contexto para el proyecto de Ciencia de Redes
+Documento preparado el 19 de octubre de 2026
+
+1. DE DÓNDE DESCARGAR LOS DATOS Y QUÉ FILTROS APLICAR
+=====================================================
+
+Fuente: Bureau of Transportation Statistics (BTS), plataforma TranStats.
+Tabla exacta: T-100 Domestic Segment (All Carriers).
+
+Página oficial de descarga:
+https://transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=GEE&QO_fu146_anzr=Nv4+Pn44vr45
+
+Configuración para obtener el mismo alcance del archivo compartido:
+  - Filter Geography: All (sin restricción geográfica adicional).
+  - Filter Year: 2025.
+  - Filter Period: All / todos los meses, de enero a diciembre.
+  - Select all fields: seleccionar todos los campos.
+  - Descargar con el botón Download.
+
+Confirmar que el encabezado de la página diga "T-100 Domestic Segment
+(All Carriers)". Existen tablas diferentes para segmentos internacionales,
+mercados y operadores estadounidenses exclusivamente; no son el mismo insumo.
+
+La selección "Domestic" ya viene dada por la tabla. No aplicar un filtro
+adicional a los 48 estados contiguos: se conservan Alaska, Hawái y los
+territorios presentes en los registros domésticos.
+
+En la descarga NO se seleccionaron previamente 100 aeropuertos ni se
+restringieron las aerolíneas, aeronaves o clases de servicio. Tampoco se
+eliminaron los registros sin mercancía. Estos pasos corresponden al análisis
+posterior, de modo que todos partamos del mismo archivo original completo.
+
+La URL abre un formulario oficial; no es un enlace permanente a un ZIP.
+BTS genera el archivo después de elegir los filtros. El nombre del ZIP
+generado puede ser distinto del nombre descriptivo utilizado aquí.
+
+2. ARCHIVO QUE SE COMPARTE
+=========================
+
+ZIP: BTS_T100_Domestic_Segment_All_Carriers_2025.zip
+CSV dentro del ZIP: T_T100D_SEGMENT_ALL_CARRIER.csv
+
+Contenido verificado:
+  - 458.793 filas y 45 columnas.
+  - YEAR contiene únicamente 2025.
+  - MONTH contiene los doce meses: 1 a 12.
+  - Incluye todos los registros descargados; conserva las 45 variables.
+
+
+3. CÓMO INTERPRETAR UNA FILA
+===========================
+
+Una fila es un agregado mensual de un segmento sin escalas entre dos
+aeropuertos, para un operador y características de aeronave/servicio.
+Una fila NO representa necesariamente un vuelo individual.
+
+Puede haber muchas filas para la misma pareja origen-destino en un mes,
+porque cambian el operador, la aeronave, la configuración o el servicio.
+No deben borrarse esas filas solo porque repitan los aeropuertos.
+
+La dirección importa en el dato original: A -> B y B -> A son registros
+distintos. En nuestra implementación se agregan después para construir una
+red no dirigida.
+
+FREIGHT y MAIL son volúmenes transportados en segmentos. Un mismo envío
+con escalas puede aparecer en varios segmentos. Tampoco debe confundirse
+PAYLOAD (capacidad disponible) con FREIGHT (mercancía transportada).
+
+4. DICCIONARIO DE LAS 45 COLUMNAS
+================================
+
+Operación, capacidad y tráfico:
+01. DEPARTURES_SCHEDULED: salidas programadas.
+02. DEPARTURES_PERFORMED: salidas realizadas.
+03. PAYLOAD: capacidad útil disponible, en libras; puede incluir capacidad
+    para pasajeros, equipaje, mercancía y correo.
+04. SEATS: asientos disponibles.
+05. PASSENGERS: pasajeros transportados en el tramo.
+06. FREIGHT: mercancía transportada, en libras (lb).
+07. MAIL: correo transportado, en libras (lb).
+08. DISTANCE: distancia entre los aeropuertos, en millas.
+09. RAMP_TO_RAMP: tiempo de plataforma a plataforma, en minutos,
+    incluyendo rodaje.
+10. AIR_TIME: tiempo en el aire, en minutos, de despegue a aterrizaje.
+
+Los conteos, capacidades, volúmenes y tiempos se acumulan para las
+operaciones del registro; DISTANCE es la distancia del tramo, no la suma
+de las distancias recorridas por todos los vuelos.
+
+Operador:
+11. UNIQUE_CARRIER: código del operador que distingue usos históricos
+    repetidos de un mismo código.
+12. AIRLINE_ID: identificador numérico de aerolínea asignado por US DOT.
+13. UNIQUE_CARRIER_NAME: nombre del operador diferenciado históricamente.
+14. UNIQUE_CARRIER_ENTITY: entidad del operador asociada a una región
+    de operación.
+15. REGION: región de operación bajo la que reporta el operador.
+16. CARRIER: código habitual de aerolínea, reutilizable históricamente.
+17. CARRIER_NAME: nombre de aerolínea.
+18. CARRIER_GROUP: clasificación del operador usada en análisis históricos.
+19. CARRIER_GROUP_NEW: clasificación del operador en el esquema actualizado.
+
+Origen:
+20. ORIGIN_AIRPORT_ID: identificador estable del aeropuerto de origen.
+21. ORIGIN_AIRPORT_SEQ_ID: identificador de su versión temporal.
+22. ORIGIN_CITY_MARKET_ID: identificador de mercado urbano de origen.
+23. ORIGIN: código del aeropuerto de origen, por ejemplo SDF.
+24. ORIGIN_CITY_NAME: nombre de ciudad de origen.
+25. ORIGIN_STATE_ABR: abreviatura del estado de origen.
+26. ORIGIN_STATE_FIPS: código federal numérico del estado de origen.
+27. ORIGIN_STATE_NM: nombre del estado de origen.
+28. ORIGIN_WAC: código de área geográfica de origen (World Area Code).
+
+Destino:
+29. DEST_AIRPORT_ID: identificador estable del aeropuerto de destino.
+30. DEST_AIRPORT_SEQ_ID: identificador de su versión temporal.
+31. DEST_CITY_MARKET_ID: identificador de mercado urbano de destino.
+32. DEST: código del aeropuerto de destino, por ejemplo SEA.
+33. DEST_CITY_NAME: nombre de ciudad de destino.
+34. DEST_STATE_ABR: abreviatura del estado de destino.
+35. DEST_STATE_FIPS: código federal numérico del estado de destino.
+36. DEST_STATE_NM: nombre del estado de destino.
+37. DEST_WAC: código de área geográfica de destino (World Area Code).
+
+AIRPORT_ID identifica un aeropuerto; AIRPORT_SEQ_ID identifica una versión
+de sus atributos. CITY_MARKET_ID permite agrupar aeropuertos que sirven al
+mismo mercado urbano; no lo usamos como identificador del nodo.
+
+Aeronave:
+38. AIRCRAFT_GROUP: grupo general de aeronave.
+39. AIRCRAFT_TYPE: tipo/modelo de aeronave.
+40. AIRCRAFT_CONFIG: configuración para pasajeros, carga o ambos;
+    el catálogo BTS incluye además el código 4, hidroavión.
+
+Calendario y otras clasificaciones:
+41. YEAR: año; en este archivo, siempre 2025.
+42. QUARTER: trimestre, de 1 a 4.
+43. MONTH: mes, de 1 a 12.
+44. DISTANCE_GROUP: intervalo de distancia, en grupos de 500 millas.
+45. CLASS: clase del servicio reportado.
+
+Los campos de grupo, tipo, configuración, clase y otros códigos se
+interpretan con las tablas de soporte "Get Lookup Table" de TranStats.
+No se deben tratar sus números como cantidades continuas.
+
+Referencias para este diccionario:
+  - Diccionario específico de nuestra tabla:
+    https://transtats.bts.gov/Fields.asp?gnoyr_VQ=GEE
+  - Instrucciones T-100 y definiciones operativas:
+    https://www.bts.gov/archive/publications/federal_register/2001/bts_20010828
+  - Cálculo de capacidad disponible:
+    https://www.bts.gov/topics/airlines-and-airports/calculating-available-capacity
+  - Glosario de conceptos T-100 (tabla relacionada, distinta de la
+    descarga doméstica utilizada):
+    https://www.transtats.bts.gov/TableInfo.asp?QO_fu146_anzr=Nv4+Pn44vr45&V0s1_b0yB=D&gnoyr_VQ=GDM
+
+5. COLUMNAS UTILIZADAS REALMENTE EN EL DESARROLLO ACTUAL
+======================================================
+
+Se descargaron las 45 columnas. Hay 17 campos utilizados explícitamente
+por su significado en la preparación, análisis, descripción o unión
+geográfica. Se organizan así:
+
+A) Núcleo analítico: 6 campos.
+   YEAR, MONTH, QUARTER,
+   ORIGIN_AIRPORT_ID, DEST_AIRPORT_ID, FREIGHT.
+
+   YEAR comprueba el año; MONTH permite agregación mensual y validación;
+   QUARTER permite separar las redes trimestrales. Los dos AIRPORT_ID
+   determinan los extremos de las conexiones y FREIGHT permite seleccionar
+   los registros con carga y clasificar los aeropuertos por volumen.
+
+B) Etiquetas y descripción: 6 campos.
+   ORIGIN, DEST,
+   ORIGIN_CITY_NAME, DEST_CITY_NAME,
+   ORIGIN_STATE_ABR, DEST_STATE_ABR.
+
+   Se utilizan en validaciones, catálogo, tablas y visualización; no son
+   predictores numéricos del modelo.
+
+C) Enlace a coordenadas históricas: 2 campos.
+   ORIGIN_AIRPORT_SEQ_ID, DEST_AIRPORT_SEQ_ID.
+
+   Se usan junto con los AIRPORT_ID y MONTH para enlazar el catálogo
+   geográfico BTS con versiones observadas en los datos de 2025.
+
+D) Auditoría y atributos complementarios: 3 campos.
+   MAIL, DISTANCE, DEPARTURES_PERFORMED.
+
+   MAIL se verifica y agrega separadamente; no se suma a FREIGHT.
+   DEPARTURES_PERFORMED se suma como atributo descriptivo de rutas.
+   DISTANCE se audita, se conserva como mediana por ruta/mes y se contrasta
+   con distancias geográficas. No se usa como longitud topológica ni como
+   predictor final de distancia en la regresión implementada.
+
+Las demás columnas se conservan en el original y en la tabla de trabajo,
+pero no se usan como variables analíticas en esta versión. Para detectar
+duplicados exactos sí se compara la fila completa de 45 campos.
+
+6. DATOS PARA ADAPTAR LA PARTE DEL ÍNDICE COMPUESTO DEL ARTÍCULO
+==============================================================
+
+Artículo de referencia:
+Zhou, H. y Razavi, S. (2026). An explanatory composite metric for air cargo
+network robustness: incorporating pairwise synergistic effects.
+Scientific Reports, 16, 7071.
+https://doi.org/10.1038/s41598-026-38153-y
+
+El artículo estudia 2022. Nuestro proyecto adapta la metodología a 2025;
+no pretende reproducir numéricamente sus resultados de 2022.
+
+Para obtener la red anual del índice, el núcleo mínimo es:
+  YEAR, ORIGIN_AIRPORT_ID, DEST_AIRPORT_ID y FREIGHT.
+Para la ampliación trimestral añadimos MONTH y QUARTER.
+ORIGIN y DEST facilitan interpretar los resultados.
+
+Proceso implementado:
+  1) Verificar año 2025 y cobertura de los doce meses.
+  2) Retirar duplicados exactos, si los hay; conservar identificadores
+     válidos, FREIGHT finito y mayor que cero, y origen distinto de destino.
+  3) Clasificar aeropuertos por FREIGHT anual de entrada más salida y
+     seleccionar los 100 primeros. Desempatar por AIRPORT_ID.
+  4) Construir la subred de esos 100 nodos. Existe una conexión si hay
+     carga positiva en al menos una dirección. Agregar ambos sentidos.
+  5) Calcular eficiencia global, eficiencia local y conectividad natural
+     para la red original, cada fallo individual y cada fallo de pareja.
+  6) Impacto de un fallo = métrica original menos métrica después del fallo.
+     Sinergia = impacto de la pareja menos los dos impactos individuales.
+  7) Normalizar las sinergias por máximo absoluto, calcular pesos de
+     entropía a partir de sus magnitudes y combinar conservando el signo.
+
+Estas tres métricas, sus impactos, las sinergias y los pesos NO son columnas
+del CSV original: se calculan a partir del grafo.
+
+La implementación es binaria y no dirigida. FREIGHT se utiliza para
+seleccionar nodos y describir volúmenes, pero no pondera las métricas de
+robustez. DISTANCE tampoco interviene en el índice compuesto.
+
+Para los cuatro trimestres se mantienen los mismos 100 aeropuertos
+seleccionados anualmente. La comparación temporal usa una normalización
+común entre trimestres y los pesos anuales, conservando también el índice
+propio de cada período.
+
+7. DATOS PARA LA REGRESIÓN EXPLICATIVA MRQAP
+===========================================
+
+La respuesta del modelo es el índice compuesto anual de cada pareja.
+No viene en el archivo: se obtiene con el procedimiento anterior.
+
+Los predictores principales implementados son:
+
+  - freight_sum: suma de la carga incidente de los dos aeropuertos.
+    Se deriva de FREIGHT y de los identificadores origen/destino. La carga
+    incidente incluye entradas y salidas hacia todos los aeropuertos del
+    conjunto depurado, también conexiones fuera de los 100 seleccionados.
+
+  - degree_sum: suma de las centralidades de grado de ambos aeropuertos.
+    Se calcula con la red de 100 nodos; cada centralidad es grado/(100-1).
+
+  - degree_diff: diferencia absoluta entre esas centralidades de grado.
+
+  - betweenness_diff: diferencia absoluta de intermediación no normalizada.
+    Se calcula con caminos de la red binaria, sin pesos.
+
+  - direct: indicador 1/0 de conexión directa entre los dos aeropuertos.
+    Se obtiene de la red construida con los registros de FREIGHT positivo.
+
+  - geo_distance_km: distancia geográfica de gran círculo entre los dos
+    aeropuertos. Requiere latitud y longitud de un segundo conjunto de BTS.
+
+Según la especificación del modelo se incluyen también interacciones entre
+predictores continuos y direct. Las variables continuas se estandarizan.
+Se ejecutaron cinco especificaciones, 9.999 permutaciones y semilla 2025.
+La implementación permuta simultáneamente filas y columnas de la matriz de
+respuesta; la interpretación es exploratoria.
+
+Por tanto, las centralidades, la conexión directa y las interacciones NO
+son campos descargados de T-100: se calculan a partir de sus registros.
+
+¿Por qué no usar simplemente DISTANCE para todas las parejas?
+DISTANCE existe en los segmentos observados. Una pareja sin conexión puede
+no tener registro de distancia en T-100, pero también debe analizarse en
+la regresión. Por eso calculamos la distancia para las 4.950 parejas con
+coordenadas BTS, en kilómetros. DISTANCE se utiliza como control de
+consistencia para las rutas observadas; 1 milla = 1,609344 kilómetros.
+
+El ZIP T-100 basta como insumo principal para construir la red y el índice.
+Para reproducir la regresión completa con distancia y para dibujar el mapa,
+se necesita además el catálogo de coordenadas.
+
+Catálogo adicional: BTS Master Coordinate.
+Descarga:
+https://transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FLL&QO_fu146_anzr=Nv42146
+Diccionario:
+https://transtats.bts.gov/Fields.asp?gnoyr_VQ=FLL
+
+El catálogo es histórico, no una tabla de movimientos de 2025. Se enlaza
+AIRPORT_SEQ_ID con ORIGIN_AIRPORT_SEQ_ID / DEST_AIRPORT_SEQ_ID. Se comprueba
+también AIRPORT_ID. Si aparecen varias versiones en 2025, se toma la del
+último mes observado; los desempates usan inicio de vigencia e identificador.
+No se escoge automáticamente la versión vigente en la fecha de descarga.
+
+8. DECISIONES Y PRECAUCIONES PARA TRABAJAR EN EQUIPO
+==================================================
+
+- Conservar intacto el ZIP compartido y hacer la limpieza mediante código.
+- Los datos raw no están limitados a 100 aeropuertos ni a carga positiva.
+- No se ha aplicado un filtro por CLASS o por AIRCRAFT_CONFIG. Pueden
+  contribuir tanto aviones cargueros como vuelos de pasajeros con mercancía.
+- Los filtros actuales dejan 191.845 registros para el análisis de carga.
+- No sumar MAIL a FREIGHT sin acordar un cambio del alcance del estudio.
+- No sumar las cargas de entrada+salida de todos los nodos para informar
+  volumen total sin corregir el doble conteo de los segmentos internos.
+- El índice mide efectos estructurales del fallo conjunto; no representa
+  toneladas perdidas, capacidad de desvío o probabilidad de cierre.
+- MRQAP explica asociaciones en esta red; no constituye una prueba causal
+  ni validación predictiva fuera de muestra.
+
+9. MÁS INFORMACIÓN OFICIAL
+==========================
+
+Guía de reporte T-100:
+https://www.bts.gov/topics/airlines-and-airports/t-100-traffic-reporting-guide
+
+Para consultar códigos de aeronave, clase, región o grupo de operador:
+abrir la página de descarga y usar "Get Lookup Table" junto al campo.
+
+Nota: la página oficial puede mostrar como última fecha disponible un mes
+de 2026. Eso describe la tabla en línea. El ZIP que acompaña este documento
+fue filtrado y verificado para contener exclusivamente enero-diciembre de 2025.

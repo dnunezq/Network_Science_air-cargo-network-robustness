@@ -1,0 +1,30 @@
+{
+  "source_url": "https://transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FLL&QO_fu146_anzr=Nv42146",
+  "downloaded_at_utc": "2026-10-19T05:01:49.832300+00:00",
+  "year_filter": null,
+  "period_filter": "All",
+  "sha256": "addd267068e0b391b72eba67aab55ee7e47e3aa708f231840883d442a4697ac0",
+  "bytes": 730236,
+  "members": [
+    "T_MASTER_CORD.csv"
+  ],
+  "csv": {
+    "sha256": "84c4e9269567665823954737d4925663af57fd6249f47f456bff3d28ed0aec8b",
+    "bytes": 4551954
+  },
+  "validation_2025": {
+    "selected_airports": 100,
+    "matched_airports": 100,
+    "observed_airport_seq_ids": 144,
+    "matched_airport_seq_ids": 144,
+    "airports_with_multiple_versions": 44,
+    "airports_with_coordinate_changes": 43,
+    "unmatched_sequences": [],
+    "selection_rule": "AirportSeqID observado en el último mes de T-100 2025; empates por AirportStartDate y AirportSeqID crecientes.",
+    "temporal_scope": "Catálogo histórico BTS descargado actualmente; coordenadas enlazadas a versiones usadas en los registros de 2025, no a la versión vigente actual.",
+    "dictionary_url": "https://transtats.bts.gov/Fields.asp?gnoyr_VQ=FLL",
+    "max_coordinate_revision_km": 1.598100337643046,
+    "coordinate_revision_note": "Cambio de coordenadas entre versiones del catálogo; no implica desplazamiento físico del aeropuerto."
+  },
+  "master_coordinate_rows": 20295
+}

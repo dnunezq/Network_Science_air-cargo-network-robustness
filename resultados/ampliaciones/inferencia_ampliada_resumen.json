@@ -1,0 +1,264 @@
+{
+  "schema_version": "1.0",
+  "method": "Freedman–Lane: permutación conjunta de residuos por nodos; t bilateral",
+  "inference_scope": "Sensibilidad metodológica exploratoria; ajuste dentro de muestra.",
+  "permutations": 1999,
+  "seed": 2025,
+  "n_nodes": 100,
+  "n_pairs": 4950,
+  "response": "score anual del índice compuesto",
+  "standardization": {
+    "freight_sum": {
+      "mean": 1005477174.04,
+      "std": 1386917152.0296867
+    },
+    "degree_sum": {
+      "mean": 0.9862626262626263,
+      "std": 0.3038543528052766
+    },
+    "degree_diff": {
+      "mean": 0.2504764819916335,
+      "std": 0.17740697202445058
+    },
+    "betweenness_diff": {
+      "mean": 29.461443775604117,
+      "std": 28.301343018002004
+    },
+    "geo_distance_km": {
+      "mean": 2312.545682535712,
+      "std": 1718.082704116348
+    }
+  },
+  "models": [
+    {
+      "model": "M5",
+      "r2": 0.8722330660862606,
+      "adjusted_r2": 0.8720261979479668,
+      "n_predictors": 8,
+      "matrix_rank": 9,
+      "condition_number": 5.999345375181653,
+      "residual_rmse": 0.03404894910326552,
+      "coefficients": [
+        {
+          "term": "intercept",
+          "coefficient": 0.11218799964570848,
+          "t_observed": 120.38258440389504,
+          "p_sensitivity": null,
+          "mc_standard_error": null,
+          "permutation_exceedances": null
+        },
+        {
+          "term": "degree_sum",
+          "coefficient": 0.11495947788334619,
+          "t_observed": 104.04992732254708,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        },
+        {
+          "term": "degree_diff",
+          "coefficient": -0.016417361516598693,
+          "t_observed": -18.118084305461092,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        },
+        {
+          "term": "betweenness_diff",
+          "coefficient": 0.005977701979061624,
+          "t_observed": 5.730999525866178,
+          "p_sensitivity": 0.013,
+          "mc_standard_error": 0.0025328837320335094,
+          "permutation_exceedances": 25
+        },
+        {
+          "term": "geo_distance_km",
+          "coefficient": 0.0045615285779208575,
+          "t_observed": 8.821056999299895,
+          "p_sensitivity": 0.0025,
+          "mc_standard_error": 0.001116635571706365,
+          "permutation_exceedances": 4
+        },
+        {
+          "term": "direct",
+          "coefficient": -0.20376176594865186,
+          "t_observed": -156.32087877240085,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        },
+        {
+          "term": "freight_sum×direct",
+          "coefficient": 0.006397053262458123,
+          "t_observed": 9.093684913319843,
+          "p_sensitivity": 0.002,
+          "mc_standard_error": 0.0009989994994993741,
+          "permutation_exceedances": 3
+        },
+        {
+          "term": "degree_sum×direct",
+          "coefficient": -0.042843787516030074,
+          "t_observed": -30.71021708952173,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        },
+        {
+          "term": "degree_diff×direct",
+          "coefficient": -0.010059737164483286,
+          "t_observed": -8.95634713788086,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        }
+      ],
+      "diagnostics": {
+        "vif": {
+          "degree_sum": 5.2025160932655865,
+          "degree_diff": 3.4993678728489264,
+          "betweenness_diff": 4.6367662525842785,
+          "geo_distance_km": 1.1396906168568586,
+          "direct": 1.8099929712743945,
+          "freight_sum×direct": 1.4419422820510752,
+          "degree_sum×direct": 3.6965254336177247,
+          "degree_diff×direct": 2.536607596481476
+        },
+        "max_vif": 5.2025160932655865,
+        "residual_degree_squared_correlation": 0.49065501882347806,
+        "studentization_numerical_floor_used": false
+      }
+    },
+    {
+      "model": "M6",
+      "r2": 0.9575676595912161,
+      "adjusted_r2": 0.9574903537078803,
+      "n_predictors": 9,
+      "matrix_rank": 10,
+      "condition_number": 9.645819303413688,
+      "residual_rmse": 0.0196219863397992,
+      "coefficients": [
+        {
+          "term": "intercept",
+          "coefficient": 0.1048096460043966,
+          "t_observed": 193.3077852502987,
+          "p_sensitivity": null,
+          "mc_standard_error": null,
+          "permutation_exceedances": null
+        },
+        {
+          "term": "degree_sum",
+          "coefficient": 0.16868261499845388,
+          "t_observed": 202.19321951411084,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        },
+        {
+          "term": "degree_diff",
+          "coefficient": -0.005172703580329769,
+          "t_observed": -9.68142980608636,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        },
+        {
+          "term": "betweenness_diff",
+          "coefficient": -0.009276416102560175,
+          "t_observed": -14.953986217153705,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        },
+        {
+          "term": "geo_distance_km",
+          "coefficient": 0.004828218566042729,
+          "t_observed": 16.199307161962093,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        },
+        {
+          "term": "direct",
+          "coefficient": -0.21871086825057523,
+          "t_observed": -285.492548478607,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        },
+        {
+          "term": "freight_sum×direct",
+          "coefficient": -0.0014517076222840715,
+          "t_observed": -3.514918544839977,
+          "p_sensitivity": 0.133,
+          "mc_standard_error": 0.00759312188760328,
+          "permutation_exceedances": 265
+        },
+        {
+          "term": "degree_sum×direct",
+          "coefficient": -0.1157121550106808,
+          "t_observed": -106.47741104696212,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        },
+        {
+          "term": "degree_diff×direct",
+          "coefficient": 0.010559998256937072,
+          "t_observed": 15.538512456158124,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        },
+        {
+          "term": "degree_sum_squared",
+          "coefficient": 0.03848555837708423,
+          "t_observed": 99.67300303138735,
+          "p_sensitivity": 0.0005,
+          "mc_standard_error": 0.0004998749843710925,
+          "permutation_exceedances": 0
+        }
+      ],
+      "diagnostics": {
+        "vif": {
+          "degree_sum": 8.929938866959668,
+          "degree_diff": 3.6626649538930596,
+          "betweenness_diff": 4.937277085499467,
+          "geo_distance_km": 1.1397824711265216,
+          "direct": 1.8821326485438694,
+          "freight_sum×direct": 1.4963359617637375,
+          "degree_sum×direct": 6.752433838499778,
+          "degree_diff×direct": 2.795659345502514,
+          "degree_sum_squared": 2.7743047155498988
+        },
+        "max_vif": 8.929938866959668,
+        "residual_degree_squared_correlation": -1.573894950259953e-15,
+        "studentization_numerical_floor_used": false
+      }
+    }
+  ],
+  "comparison": {
+    "r2_M5": 0.8722330660862606,
+    "r2_M6": 0.9575676595912161,
+    "delta_r2": 0.08533459350495554,
+    "rmse_M5": 0.03404894910326552,
+    "rmse_M6": 0.0196219863397992
+  },
+  "notes": [
+    "M6 añade el cuadrado de degree_sum estandarizado a la especificación fija M5.",
+    "R², R² ajustado y RMSE son descripciones del ajuste interno; no validación predictiva ni evidencia causal.",
+    "Los p_sensitivity conservan los otros términos bajo la nula mediante ajuste reducido y permutación de residuos por nodos.",
+    "El estadístico t solo studentiza la comparación por permutaciones; no se usan p-valores t paramétricos.",
+    "Se usa contraste bilateral y corrección +1. La constante no recibe p de sensibilidad.",
+    "Los p de esta sensibilidad no reemplazan los p de permutación de Y de la entrega base.",
+    "Sin ajuste por contrastes múltiples. La intercambiabilidad residual requiere juicio metodológico; no se certifica calibración general.",
+    "El error Monte Carlo es aproximado y solo describe variación por permutaciones; no es intervalo de confianza del coeficiente.",
+    "La matriz de respuesta y varias covariables proceden de la misma topología; un ajuste alto puede reflejar relaciones estructurales matemáticas."
+  ],
+  "artifacts": {
+    "summary_json": "resultados/ampliaciones/inferencia_ampliada_resumen.json",
+    "coefficients_csv": "resultados/ampliaciones/inferencia_ampliada_coeficientes.csv",
+    "models_csv": "resultados/ampliaciones/inferencia_ampliada_modelos.csv",
+    "residuals_csv": "resultados/ampliaciones/inferencia_ampliada_residuos.csv",
+    "vif_csv": "resultados/ampliaciones/inferencia_ampliada_vif.csv"
+  }
+}
